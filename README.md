@@ -4,25 +4,25 @@ Build a web scraper using libraries like BeautifulSoup and requests to extract d
        
        pip install requests beautifulsoup4
       
-import requests
-from bs4 import BeautifulSoup
+       import requests
+       from bs4 import BeautifulSoup
 
-  # URL of the website to scrape
-url = 'https://www.moneycontrol.com/news/india/'
+         # URL of the website to scrape
+       url = 'https://www.moneycontrol.com/news/india/'
 
-  # Send a GET request to the website
-response = requests.get(url)
+         # Send a GET request to the website
+       response = requests.get(url)
 
-  # Check if the request was successful
-if response.status_code == 200:
-    # Parse the HTML content of the page
-     soup = BeautifulSoup(response.content, 'html.parser')
+         # Check if the request was successful
+       if response.status_code == 200:
+           # Parse the HTML content of the page
+            soup = BeautifulSoup(response.content, 'html.parser')
 
-# Find all article titles (assuming they are in <h2> tags)
-titles = soup.find_all('h2')
+       # Find all article titles (assuming they are in <h2> tags)
+       titles = soup.find_all('h2')
 
-# Print the titles of the articles
-for title in titles:
-    print(title.get_text())
-else:
-     print(f"Failed to retrieve the webpage. Status code: {response.status_code}")
+       # Print the titles of the articles
+       for title in titles:
+           print(title.get_text())
+       else:
+            print(f"Failed to retrieve the webpage. Status code: {response.status_code}")
